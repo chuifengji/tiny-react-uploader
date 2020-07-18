@@ -26,6 +26,7 @@
     .iconshangchuanwenjian:before {
         content: "\e88f";
         font-size: 60px;
+        color: #1890ff;
     }
 }
 
@@ -54,6 +55,8 @@
 
 .uploader_progress_outBox {
     position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .uploader_progress_container {
@@ -61,7 +64,7 @@
 }
 
 .uploader_progress_color {
-    position: relative;
+    position: absolute;
 }
 
 .uploader_progress_number {
@@ -75,3 +78,5 @@
     height: 100%;
     z-index: 999;
 }
+
+.uploader_progress_detail_container {}

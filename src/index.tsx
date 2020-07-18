@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 const styles = require('./index.scss');
-let Uploader = function (props) {
+const request = require("./netHandler");
+interface PropsConfig {
+    hint: string
+}
+let Uploader = function (props: PropsConfig) {
     const [upload_progress, setUpload_progress] = useState(0);//upload progress
     useEffect(() => {
         console.log('use effect!')
     });
     return (
         <div>
-
             <div className={styles.uploader_container}>
                 <input className={styles.uploader_clear_style_of_input} type="file"></input>
                 <div className={styles.uploader_text_hint}></div>
@@ -26,6 +29,7 @@ let Uploader = function (props) {
                     </div>
                     <p className={styles.uploader_progress_number}>{upload_progress}%</p>
                 </div>
+                <div className={styles.uploader_progress_detail_container}>上传详情</div>
             </div >
 
         </div>
