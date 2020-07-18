@@ -4,7 +4,7 @@ interface RequestConfig {
     data: any,
     header: object,
 }
-let request = (config: RequestConfig) => {
+export function request(config: RequestConfig) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.open(config.method, config.url);
@@ -19,7 +19,13 @@ let request = (config: RequestConfig) => {
         }
     })
 }
-export default request
+
+
+
+
+
+
+
 
 
 

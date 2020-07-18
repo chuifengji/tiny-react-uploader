@@ -51,6 +51,7 @@
 
 .uploader_text_hint {
     position: relative;
+    text-align: center;
 }
 
 .uploader_progress_outBox {
@@ -75,7 +76,7 @@
     opacity: 0;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 50%;
     z-index: 999;
 }
 
