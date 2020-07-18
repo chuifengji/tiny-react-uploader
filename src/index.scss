@@ -1,5 +1,77 @@
-.test {
-    font-size: 18px;
-    color: white;
-    background: black;
+@font-face {
+    font-family: "iconfont";
+    src: url('//at.alicdn.com/t/font_1951813_u6jy3j7frel.eot?t=1595039833670');
+    /* IE9 */
+    src: url('//at.alicdn.com/t/font_1951813_u6jy3j7frel.eot?t=1595039833670#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMQAAsAAAAABuQAAALCAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqBZIFQATYCJAMICwYABCAFhG0HOxsBBsgOJR1BwZgJCEpABPH7/W/23PNNJGoTJYkmTSQaofyIiJdmGukWimWIvMm5zPPWjiFyhKge036+ePkBkAIANzs9jedRGJT8P5fTm0CBzA+U49qbj3oBxlsD2tvGsgQLKOSG6eULGsjjBKr1i6LYKKlqAg4yPS4QpzBrBA45ryyzRKVQXrM0iyvKVKaz6RpwOfx+/JEQDiRlBV2y92SxBeT9vGxSipHSjiM+gjefGWwVBWYBmThYG91NJRhNpTqqNgzsqzD4eblU8vVirxrB/jqdXwt6IfeeeI5/q/kJZNi+C7B31B3JTbVeHezy6eaWb+vaiXfzysb5sU9L2Oja/ApwY3luVcGurvo4tUARlXsvyDs3adfztxU255PX/isgPXhFuZx7E6LZe5tKnzz3X2icrvss654d6K7rGhro0YC9Zzh8Sf/5/dE/lL/LxjPN2onF5Nq++//yhq7aYaPyAZ0zuia/fK4u1P+UTyMPI0+pWvE0+G8wX8mj/cW79PVXf+PLV/xU75r114HO4MfSaHuozvrZqTy3LfiHvJ5lWQi0Il0NF9mSXZkMCdXCoUQ7mz2NVbbdcDJUartte4W+FAqVRtFMzkKZGnNQrtIyVJtRurpGC0IlchWmTQIIjS4gqfcWCo1u0Ew+Qpl2r1CuMVRQ7XB4blljPDBVSJCxA1mgqRdisyQy1tBBRYUNiO3kjSQrCOktiNhxAMbHxBUTpUhEZI4Z9i42oaODgQyRBFgCTkM8L0GZSDZk7oixdnTIGbGxTN2LYsySACjrCMSoA2IBmfSCMDOJiPGrd6BKn2+AsDrxjEgLJedsgRB2uHMoXoy4HmipVOxFuZdL7LqwEnTowIAYhEQAlQAzwpuoBJLrB9kgZh1iWEeEZRliUSWmrzRmfbnwdWugmlalMN0KTaetRpE1Wzv9UDcSbZhqAAAAAA==') format('woff2'),
+        url('//at.alicdn.com/t/font_1951813_u6jy3j7frel.woff?t=1595039833670') format('woff'),
+        url('//at.alicdn.com/t/font_1951813_u6jy3j7frel.ttf?t=1595039833670') format('truetype'),
+        /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+        url('//at.alicdn.com/t/font_1951813_u6jy3j7frel.svg?t=1595039833670#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+:global {
+
+    //global 包裹表示不做前缀处理
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .iconshangchuanwenjian:before {
+        content: "\e88f";
+        font-size: 60px;
+    }
+}
+
+.uploader_container {
+    position: relative;
+    width: 80%;
+
+}
+
+.uploader_input_file {
+    position: relative;
+}
+
+.uploader_icon {
+    font-size: 50px;
+}
+
+.uploader_icon_outBox {
+    position: relative;
+    text-align: center;
+}
+
+.uploader_text_hint {
+    position: relative;
+}
+
+.uploader_progress_outBox {
+    position: relative;
+}
+
+.uploader_progress_container {
+    position: relative;
+}
+
+.uploader_progress_color {
+    position: relative;
+}
+
+.uploader_progress_number {
+    position: relative;
+}
+
+.uploader_clear_style_of_input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
 }
