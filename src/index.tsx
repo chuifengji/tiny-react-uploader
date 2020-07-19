@@ -10,7 +10,9 @@ interface PropsConfig {
     chunk_threshold_size: number//当文件大于 xx 时就切片处理。
 }
 let file_name: string = '',
-    chunk_list = null;
+    chunk_list = null,
+    worker = null,
+    hashPercentage: number = 0;
 let Uploader = function (props: PropsConfig) {
     const [upload_progress, setupload_progress] = useState(0);//upload progress
     useEffect(() => {
@@ -37,11 +39,11 @@ let Uploader = function (props: PropsConfig) {
     const calculateHash = function (chunk_list) {
         return new Promise(resolve => {
             // 添加 worker 属性
-            this.container.worker = new Worker("./hashWorker.js");
-            this.container.worker.postMessage({ chunk_list });
-            this.container.worker.onmessage = e => {
+            worker = new Worker("./hashWorker.js");
+            worker.postMessage({ chunk_list });
+            worker.onmessage = e => {
                 const { percentage, hash } = e.data;
-                this.hashPercentage = percentage;
+                hashPercentage = percentage;
                 if (hash) {
                     resolve(hash);
                 }
