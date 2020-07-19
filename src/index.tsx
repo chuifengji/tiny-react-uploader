@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 const styles = require('./index.scss');
-const { createChunkList, uploadAllChunks } = require("./chunkhandler")
+const { createChunkList, uploadAllChunks } = require("./chunkHandler")
 
 interface PropsConfig {
     hint: string,//提示文字
     chunk_size: number,//切片的分块大小
-    requestConfig: object//url,method,header
+    requestConfigUpload: object,//url,method,header
+    requestConfigMerge: object,//合并切片请求配置项
+    chunk_threshold_size: number//当文件大于 xx 时就切片处理。
 }
 let file_name: string = '',
     chunk_list = null;
@@ -29,9 +31,23 @@ let Uploader = function (props: PropsConfig) {
     //uploadFile 上传文件至后端，node端。
     const uploadFile = function (e) {
         console.log('上传')
-        uploadAllChunks(chunk_list, file_name, props.requestConfig)
+        uploadAllChunks(chunk_list, file_name, props.requestConfigUpload)
     }
-
+    //calculateHash 根据切片计算得到文件内容的hash值
+    const calculateHash = function (chunk_list) {
+        return new Promise(resolve => {
+            // 添加 worker 属性
+            this.container.worker = new Worker("./hashWorker.js");
+            this.container.worker.postMessage({ chunk_list });
+            this.container.worker.onmessage = e => {
+                const { percentage, hash } = e.data;
+                this.hashPercentage = percentage;
+                if (hash) {
+                    resolve(hash);
+                }
+            };
+        });
+    }
     return (
         <div>
             <div className={styles.uploader_container}>

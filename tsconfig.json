@@ -2,10 +2,12 @@
     "compilerOptions": {
         "baseUrl": "./",
         "jsx": "react",
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "allowJs": true,
     },
     "include": [
         "src/*",
         "preview/*",
+        "src/spark-md5.min.js",
     ]
 }
